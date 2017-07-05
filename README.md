@@ -1,4 +1,5 @@
-﻿----------------------------------------------------------------------------------------------------
+﻿##grunt前端开发脚手架
+----------------------------------------------------------------------------------------------------
 node安装完成后，安装grunt运行需要的模块，
 
 测试Nodejs是否已安装：node -v
@@ -42,24 +43,24 @@ cnpm install grunt-express --save-dev
 
 2. 'open:dev'：路径: 'http://localhost:3000/html'
 
-3. 'watch'：
-	html：自动刷新(done)
-	sass: 自动编译(done)
-	css: 自动刷新(done)
+3. 'watch'：<br>
+	html：自动刷新(done)<br>
+	sass: 自动编译(done)<br>
+	css: 自动刷新(done)<br>
 	js: 自动刷新(done)
 
 ----------------------------------------------------------------------------------------------------
 
-生产环境(grunt app)自动运行任务如下: 
+生产环境(grunt app)自动运行任务如下: <br>
 
-1. 'cssmin:app': css压缩(done)
+1. 'cssmin:app': css压缩(done)<br>
 
-2. 'uglify:app': js合并压缩(done)
+2. 'uglify:app': js合并压缩(done)<br>
 
-3. 'imagemin:app': 图片压缩(done)
+3. 'imagemin:app': 图片压缩(done)<br>
 
-4. htmlmin:app: html压缩
+4. htmlmin:app: html压缩<br>
 
-5. 将引用的静态资源替换为压缩合并过的版本
+5. 将引用的静态资源替换为压缩合并过的版本<br>
 
 6. 同开发环境一样发布预览 'express:dev'->'open:dev', (生产环境只可预览，要调试需要从开发环境发布)
