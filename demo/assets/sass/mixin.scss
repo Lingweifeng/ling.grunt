@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+// 例如: torem(150px); 
+@function torem($px){	//$px为需要转换的字号
+    @return $px / 20px * 1rem; 	//20px为根字体大小
+}
+
+// font size
+$bold: bold;
+$fontsize-xxl: torem(30px); //36pt
+$fontsize-xl: torem(24px); //36pt
+$fontsize-l: torem(20px);  //30pt
+$fontsize-m: torem(18px);  //26pt
+$fontsize-ms: torem(16px); //24pt
+$fontsize-s: torem(14px);  //22pt
+$fontsize-xs: torem(13px); //20pt
+
+// font color
+$white: #fff;
+$light: #666;
+$lightmore: #999;
+$lightmost: #ddd;
+$green: #7cbb36;
+$orange: #eb711c;
+$orange-dark: #462929;
+$orange2: #ff6633;
+$blue: #00a5ed;
+
+// bg color
+$bg-blue: #dcf9f7;
+$bg-lightblue: #f0faf9;
+$bg-lighterblue: #f8fefd;
+
+// line color
+$line-normal: #ccc;
+
+// width100%
+$w100: 100%;
+
+// custom
+$zIndex1: 9;
+$zIndex2: 10;
+$zIndex3: 99;
+$zIndex4: 100;
+$zIndex5: 999;
+$zIndex6: 1000;
+
+//  margin &&  padding
+@mixin mb( $value: 20 ){
+	margin-bottom: $value;
+}
+@mixin mt( $value: 20 ){
+	margin-top: $value;
+}
+@mixin ml( $value: 20 ){
+	margin-left: $value;
+}
+@mixin mr( $value: 20 ){
+	margin-right: $value;
+}
+
+//居中
+@mixin acenter{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 999;
+}
+
+// 圆角
+@mixin rounded( $value: 5 ){
+	border-radius: $value;
+	-moz-border-radius: $value;
+	-webkit-border-radius: $value;
+	-o-border-radius: $value;
+	-ms-border-radius: $value;
+	-khtml-border-radius: $value;
+}
+// 阴影
+@mixin shadow( $value: 0 5px 5px #aaa ){
+	box-shadow: $value;
+	-moz-box-shadow: $value;
+	-webkit-box-shadow: $value;
+	-o-box-shadow: $value;
+}
+
+// 旋转
+@mixin rotate( $value: 45deg ){
+	transform:rotate( $value );
+	-ms-transform:rotate( $value ); 	/* IE 9 */
+	-moz-transform:rotate( $value ); 	/* Firefox */
+	-webkit-transform:rotate( $value ); /* Safari 和 Chrome */
+	-o-transform:rotate( $value ); 		/* Opera */
+}
+
+// 渐变
+@mixin gradient( $start:#7da7d9,$end:#5574b9 ){
+	background: -webkit-linear-gradient($start, $end); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient($start, $end); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient($start, $end); /* Firefox 3.6 - 15 */
+    background: linear-gradient($start, $end); /* 标准的语法 */
+}

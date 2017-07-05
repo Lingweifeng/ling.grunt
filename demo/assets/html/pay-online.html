@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Dicos</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta name="MobileOptimized" content="320">
+    <!-- build:css ../css/common.min.css -->
+    <link href="../css/common.css" rel="stylesheet" />
+    <!-- endbuild -->
+    <!-- build:css ../css/style.min.css -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <!-- endbuild -->
+</head>
+<body class="bg-light">
+    <header id="top" class="header">
+        <h1>dicos</h1>
+        <h3>确认下单</h3>
+        <a class="menubtn" href="#"><i class="icon sort-thin"></i></a>
+        <i class="menu-drop-mark"></i>
+        <div class="menu-drop">
+            <ul class="list">
+                <li><a href="#"><b>首页</b><i class="icon arrow-right"></i></a></li>
+                <li><a href="#"><b>我要送餐</b><i class="icon arrow-right"></i></a></li>
+                <li><a href="#"><b>我要堂吃</b><i class="icon arrow-right"></i></a></li>
+                <li><a href="#"><b>优惠分享</b><i class="icon arrow-right"></i></a></li>
+                <li><a href="#"><b>最新资讯</b><i class="icon arrow-right"></i></a></li>
+                <li><a href="#"><b>个人中心</b><i class="icon arrow-right"></i></a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="tips order-item">
+        <p class="text-center orange">剩余支付时间：<span class="orange"><b id="minute" class="orange">0</b>分<b id="second" class="orange">0</b>秒</span></p>
+    </section>
+    <section class="order-item total clearfix">
+        <p>订单号<span class="float-right lightmore">000111111000111111</span></p>
+        <p>金额<span class="float-right lightmore"><i class="icon money-thin"></i><strong class="orange">98</strong></span></p>
+    </section>
+    <section class="order-item address noborder clearfix">
+        <p>选择支付方式</p>
+        <p class="pay-method"><i class="icon-wx">微信支付</i><span class="float-right"><i class="icon check-round green"></i></span></p>
+        <div class="form-btn form-tel"><button class="btn" type="submit"><i class="icon check-round-fill"></i></button></div>
+    </section>
+
+    <!-- build:js ../js/lib.min.js -->
+    <script src="../js/lib/zepto.min.js"></script>
+    <script src="../js/lib/fastclick.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js ../js/common.min.js -->
+    <script src="../js/common.js"></script>
+    <!-- endbuild -->
+    <script>
+        $(function(){
+            // 倒计时
+            var m = 29; //传个分钟数到这里
+            var s = 59;
+            function showtime(){
+                $( '#minute' ).text( m );
+                $( '#second' ).text( s );
+                s = s-1;
+                if( s==0 ){
+                    m = m -1;
+                    s = 60
+                }
+                if(m==0){
+                    alert( '时间到！！！' );
+                }
+            };
+            clearInterval( settime ); 
+            var settime = setInterval(function(){
+                showtime();
+            }, 1000 );
+        });
+    </script>
+</body>
+<!-- END BODY -->
+</html>

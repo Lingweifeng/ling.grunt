@@ -1,0 +1,34 @@
+{
+  "name": "ling.grunt",
+  "keyword": "ling.grunt",
+  "version": "1.0.0",
+  "author": "凌韦峰<lingweifeng@chexiang.com>",
+  "description": "grunt框架",
+  "respath": "demo",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-htmlmin": "^1.3.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express": "^1.4.1",
+    "grunt-filerev": "^2.3.1",
+    "grunt-include-replace": "^3.2.0",
+    "grunt-open": "^0.2.3",
+    "grunt-usemin": "^3.1.1"
+  },
+  "dependencies": {
+    "express": "3.x"
+  },
+  "license": "lingweifeng"
+}

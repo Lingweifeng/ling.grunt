@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Dicos</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta name="MobileOptimized" content="320">
+    <!-- build:css ../css/common.min.css -->
+    <link href="../css/common.css" rel="stylesheet" />
+    <!-- endbuild -->
+    <!-- build:css ../css/style.min.css -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <!-- endbuild -->
+</head>
+<body class="bg-light">
+    <header id="top" class="header">
+        <h1>dicos</h1>
+        <a class="menubtn" href="#"><i class="icon sort-thin"></i></a>
+    </header>
+    <section class="order-item address clearfix">
+        <p><b>地址</b><input id="address" readonly class="float-right lightmore" value="黄浦区兰生大厦黄浦区兰生大厦黄浦区兰生大厦黄浦区兰生大厦"></p>
+    </section>
+    <section class="order-item address-list">
+        <ul id="addressList" class="list">
+            <li data-choice-from data-choice-to="#address"><b data-choice-value>黄浦区兰生大厦1</b><span class="fr"><i class="icon trash"></i></span></li>
+            <li data-choice-from data-choice-to="#address"><b data-choice-value>黄浦区兰生大厦2</b><span class="fr"><i class="icon trash"></i></span></li>
+            <li data-choice-from data-choice-to="#address"><b data-choice-value>黄浦区兰生大厦3</b><span class="fr"><i class="icon trash"></i></span></li>
+            <li data-choice-from data-choice-to="#address"><b data-choice-value>黄浦区兰生大厦4</b><span class="fr"><i class="icon trash"></i></span></li>
+            <li id="addAddress"><b class="orange">新增地址</b><span class="fr"><i class="icon add">+</i></span></li>
+        </ul>
+    </section>
+    <section class="order-item address clearfix">
+        <p class="clearfix"><b>名字</b><input type="text" class="float-right lightmore" value="孙葡萄"></p>
+    </section>
+    <section class="order-item address noborder clearfix">
+        <p class="clearfix"><b>联系方式</b><input type="text" class="float-right lightmore" value="15893548445"></p>
+        <div class="form-btn form-tel"><button class="btn" type="submit"><i class="icon check-round-fill"></i></button></div>
+    </section>
+
+    <div class="mask"></div>
+    <div id="addNewsMadal" class="modal modal-success">
+        <div class="modal-main">
+            <h3 class="modal-tit">新增地址</h3>
+            <div class="modal-con">
+                <div class="form-item block">
+                    <label>新增地址：</label>
+                    <input id="addressInput" type="text" placeholder="请输入地址" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ok">确定</button>
+                    <button class="btn btn-default btn-cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- build:js ../js/lib.min.js -->
+    <script src="../js/lib/zepto.min.js"></script>
+    <script src="../js/lib/fastclick.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js ../js/common.min.js -->
+    <script src="../js/common.js"></script>
+    <!-- endbuild -->
+    <script>
+
+        // 列表新增地址
+        var $addAddress = $( '#addAddress' ),
+            $addressList = $( '#addressList' ),
+            $addressInput = $( '#addressInput' ),
+            $addNewsMadal = $( '#addNewsMadal' );
+        $addAddress.on( 'click', function(){
+
+            Dicos.showModal( $addNewsMadal, function(){
+
+                // 回调
+
+            });
+
+            return false;
+        });
+
+        // 列表删除
+        $addressList.on( 'click', '.list .trash', function(){
+            // 显示新增
+            $addAddress.show();
+            $(this).closest( 'li' ).remove();
+        });
+
+        // 弹窗确定
+        $addNewsMadal.on( 'click', '.btn-ok', function(){
+
+            var value = $.trim( $addressInput.val() );
+
+            if( value.length === 0 ) { Dicos.Msg( '请输入地址' ); return; };
+
+            $addAddress.before( '<li data-choice-from data-choice-to="#address"><b data-choice-value>'+ value +'</b><span class="fr"><i class="icon trash"></i></span></li>' );
+
+            // 隐藏新增
+            if( $addressList.find( 'li' ).length > 5 ) $addAddress.hide();
+
+            $addressInput.val( '' );
+
+            Dicos.hideModal();
+        });
+
+        // 弹窗取消
+        $addNewsMadal.on( 'click', '.btn-cancel', function(){
+            Dicos.hideModal();
+        });
+
+    </script>
+</body>
+<!-- END BODY -->
+</html>

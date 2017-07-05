@@ -1,0 +1,11 @@
+.*
+!.gitignore
+/node_modules
+/dicos
+/ling.js
+/mobile
+/mobile-tiku
+/mobile-wish
+/my
+/other
+/wecar

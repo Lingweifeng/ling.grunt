@@ -1,0 +1,962 @@
+@charset "UTF-8";
+// 导入公用部分
+@import "mixin.scss";
+
+// index
+body.bg-light{
+    background-color: #f1f1f1
+}
+
+// header
+.header{
+    position: relative;
+    z-index: 10;
+    height: torem(60px);
+    background: $green;
+}
+.header h1{
+    float: right;
+    margin: torem(18px) torem(20px) 0 0;
+    width: torem(67px);
+    height: torem( 22px );
+    line-height: torem(90px);
+    overflow: hidden;
+    background: url(../image/dicos.png) center center no-repeat;
+    background-size: contain;
+}
+.header > h3{
+    position: absolute;
+    left: torem(60px);
+    top: 0;
+    right: torem(60px);
+    padding: torem(20px) torem(10px);
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+.header .menubtn, .header .menu-arrow{
+    display: block;
+    padding: torem(8px) torem(15px);
+    height: 100%;
+    width: torem(70px);
+    &.float-right{
+        width: 65px;
+    }
+}
+.header .menubtn .icon, .header .menu-arrow .icon{
+    font-size: torem(43px);
+    color: $white;    
+}
+.header-order .menu-arrow.float-left{
+    padding-left: torem(5px);
+}
+.header .menubtn-edit{
+    padding-top: torem(24px);
+    font-size: $fontsize-ms;
+    color: #fff;
+}
+.header-order h1{
+    padding: 0;
+    float: none;
+    margin-right: 0;
+    display: inline-block;
+    width: torem(220px);
+    background: none;
+    height: torem(30px);
+    line-height: torem(30px);
+    color: #fff;
+    text-align: center;
+}
+
+// index
+.link-list{
+    padding: torem(15px) torem(10px);
+    > a{
+        display: block;
+        float: left;
+        &.imp{
+            width: torem(172px);
+            margin-bottom: torem(18px);
+            &:first-child{
+                margin-right: torem(10px);
+            }
+        }
+        &.other{
+            position: relative;
+            width: torem(111px);
+            margin-right: torem(10px);
+            &:last-child{
+                margin-right: 0;
+            }
+            > strong{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 10;
+                width: 100%;
+                padding: torem(9px) 0;
+                text-align: center;
+                color: #fff;
+                font-size: $fontsize-m;
+                font-weight: normal;
+            }
+            > span{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 9;
+                width: 100%;
+                height: 100%;
+                line-height: torem(140px);
+                text-align: center;
+                background-color: rgba(0,0,0,.3);
+                > img{
+                    display: inline;
+                    width: torem(40px);
+                }
+            }
+            &:hover, &:focus{
+                > span{
+                    display: block;
+                }
+            }
+
+        }
+    }
+}
+
+// 选择门店
+.map-wrap{
+    position: relative;
+}
+.map{
+    width: 100%;
+    height: torem(293px);
+}
+.map-pos{
+    position: absolute;
+    top: torem(20px);
+    left: torem(20px);
+    right: torem(20px);
+    z-index: 9;
+    padding: torem(12px);
+    border-radius: torem(4px);
+    box-shadow: 0 0 5px #666;
+    background: #fff;
+}
+.map-pos .icon.pos{
+    margin-right: torem(8px);
+    font-size: torem(20px);
+    color: $green;
+}
+.map-pos b{
+    vertical-align: middle;
+}
+.command{
+    padding: torem(30px) torem(20px) 0 torem(20px);
+}
+.tips{
+    margin-bottom: torem(25px);
+    color: #999;
+}
+.tips-block{
+    position: relative;
+    z-index: 10;
+    margin-bottom: 0;
+    padding: torem(20px) torem(10px);
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 2px 2px #ddd;
+}
+.tips-block > strong{
+    margin: torem(5px);
+}
+
+.item{
+    display: block;
+    margin-left: torem(9px);
+    border-left: 1px dotted #ddd;
+}
+.item h3{
+    position: relative;
+    top: torem(-1px);
+    padding: 0 0 torem(10px);
+}
+.item h3 i{
+    margin: torem(-2px) torem(10px) 0 torem(-8px);
+    display: inline-block;
+    vertical-align: middle;
+    width: torem(16px);
+    height: torem(16px);
+    border-radius: 50%;
+    background: #eb711c;
+}
+.item p{
+    padding: 0 torem(16px) torem(30px);
+    color: #999;
+}
+.item p .icon{
+    color: $green;
+}
+.item:nth-child(2) p{
+    color: $orange;
+}
+.item:nth-child(3) h3 i{
+    background: #5fc0f8;
+}
+.item:nth-child(4) h3 i{
+    background: #5ce8c4;
+}
+.item:nth-child(5) h3 i{
+    background: #f66bb1;
+}
+
+
+/* stab */
+.stab{
+    position: absolute;
+    left: 0;
+    top: torem(115px);
+    bottom: torem(60px);
+    z-index: 9;
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+.stab-side{
+    padding: torem(10px) 0;
+    float: left;
+    width: 26%;
+    height: 100%;
+    border-right: 1px solid #ccc;
+    background: #fafafa;
+    /* overflow: auto;
+    -webkit-overflow-scrolling : touch; */
+}
+.stab-list > li > a{
+    display: block;
+    padding: torem(20px) torem(19px) torem(20px) torem(15px) ;
+    line-height: 130%;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+}
+.stab-list > li.active > a{
+    margin-right: -1px;
+    border-left: torem(4px) solid $green;
+    background: #fff;
+    color: #333;
+}
+
+.stab-main{
+    float: right;
+    width: 74%;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling : touch;
+}
+.stab-item{
+    padding: torem(18px) torem(20px) 0;
+    border-bottom: 1px solid #ccc;
+}
+.stab-item > h3{
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.stab-item > ul > li{
+    border-bottom: 1px solid #ccc;
+    > a{
+        display: block;
+        position: relative;
+        padding: torem(20px) 0 torem(20px);
+        > img{
+            position: absolute;
+            width: torem(70px);
+        }
+        > span{
+            padding: torem(5px) torem(10px) torem(5px) torem(80px);
+            display: block;
+            height: torem(70px);
+            overflow: hidden;
+            white-space: nowrap;
+            > strong{
+                margin-bottom: torem(10px);
+                display: block;
+                height: torem(20px);
+                font-size: $fontsize-m;
+                font-weight: normal;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            > em, > b{
+                display: inline-block;
+                vertical-align: middle;
+                width: torem(60px);
+                color: $orange;
+            }
+            > em{
+                padding: 0 torem(30px);
+                position: relative;
+                width: torem(90px);
+                height: torem(30px);
+                > .add-round-fill{
+                    margin-right: 0;
+                    position: absolute;
+                    top: torem(-3px);
+                    right: 0;
+                    font-size: $fontsize-xxl;
+                    color: $orange;
+                }
+                > b{
+                    display: none;
+                    width: torem(20px);
+                    height: 100%;
+                    overflow: hidden;
+                    line-height: 140%;
+                    vertical-align: middle;
+                    font-size: $fontsize-l;
+                    color: $orange;
+                }
+                > .minus{
+                    margin-right: 0;
+                    display: none;
+                    position: absolute;
+                    top: torem(3px);
+                    left: torem(5px);
+                    font-size: $fontsize-l;
+                    vertical-align: middle;
+                }
+                &.active{
+                    border: 1px solid #ccc;
+                    border-radius: torem(16px);
+                    > .minus, > b{
+                        display: block;
+                    }
+                }
+            }
+            > b > .icon{
+                color: $orange;
+            }
+        }
+    }
+    &:last-child{
+        border-bottom: none;
+    }
+}
+
+.car{
+    height: 100%;
+    .icon{
+        margin-right: torem(6px);
+        font-size: torem(32px);
+        color: #fff;
+    }
+    .shoppingcar{
+        margin-top: torem(-10px);
+    }
+}
+.car-main, .car-tool{
+    float: left;
+    height: 100%;
+    padding: torem(13px) torem(15px);
+    font-size: $fontsize-ms;
+    color: #fff;
+}
+.car-main{
+    width: 68%;
+    background: $orange-dark;
+    > span{
+        vertical-align: torem(-8px);
+        margin-left: torem(-10px);
+        font-size: $fontsize-s;
+        color: #fff;
+        > .icon{
+            margin-left: torem(5px);
+            font-size: $fontsize-s;
+        }
+        > b{
+            vertical-align: torem(-3px);
+            font-size: $fontsize-xxl;
+            color: #fff;
+        }
+    }
+}
+.car-tool{
+    padding-top: torem(14px);
+    width: 32%;
+    background: $orange2;
+    > b{
+        color: #fff;
+        vertical-align: middle;
+    }
+}
+
+.order-item{
+    margin-bottom: 0;
+    padding: torem(18px) torem(20px);
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    p{
+        line-height: 150%;
+        margin-bottom: torem(10px);
+        &.btn-wrap{
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    .list > li{
+        margin-bottom: torem(15px);
+        &:last-child{
+            margin-bottom: 0;
+        }
+        span{
+            float: right;
+            color: $lightmore;
+            > i, b{
+                margin-right: 0;
+                vertical-align: middle;
+                font-size: $fontsize-s;
+                color: $lightmore;
+            }
+            >.icon{
+                color: $lightmore;
+            }
+            > b{
+                font-size: $fontsize-ms;
+            }
+        }
+    }
+    .form-btn{
+        position: relative;
+        top: torem(10px);
+        margin-bottom: torem(-50px);
+        text-align: center;
+        .btn{
+            padding: 0;
+            width: torem(70px);
+            height: torem(70px);
+            border-radius: 50%;
+            background: #fff;
+            border: none;
+            .icon{
+                display: inline-block;
+                margin: torem(-10px) 0 0 torem(-5px);
+                color: $green;
+                border-radius: 50%;
+                font-size: torem(80px);
+            }
+        }
+    }
+    .form-tel{
+        top: torem(13px);
+        margin-bottom: torem(-40px);
+        .btn{
+            width: torem(60px);
+            height: torem(60px);
+            .icon{
+                font-size: torem(70px);
+            }
+        }
+    }
+}
+.form-item{
+    margin-bottom: torem(15px);
+    white-space: nowrap;
+    > label{
+        display: inline-block;
+        width: torem(60px);
+        text-align: right;
+        margin-right: torem(5px);
+        vertical-align: middle;
+    }
+    > textarea{
+        white-space: normal;
+        vertical-align: middle;
+        width: torem(240px);
+        padding: torem(10px);
+        line-height: 150%;
+        border: 1px solid #ccc;
+    }
+}
+.form-block > textarea{
+    width: 100%;
+    box-sizing: border-box;
+}
+.order-item.tips{
+    color: #333;
+}
+.order-item.total{
+     span{
+        float: right;
+        > em, > i, > b{
+            vertical-align: middle;
+        }
+        > strong{
+            vertical-align: torem(-5px);
+            font-size: $fontsize-xxl;
+        }
+     }
+}
+.order-item.noborder{
+    position: relative;
+    border-bottom: none;
+    box-shadow: 0 3px 5px #ccc;
+    margin-bottom: torem(100px);
+    padding-bottom: torem(20px);
+}
+.tips.order-item.success{
+    text-align: center;
+    font-size: $fontsize-l;
+    color: $green;
+    .icon{
+        display: block;
+        margin: 0 0 torem(5px);
+        font-size: torem(80px);
+        color: $green;
+    }
+}
+.logo{
+    width: torem(100px);
+    float: left;
+}
+.logo-wrap{
+    padding-bottom: torem(10px);
+    border-bottom: none;
+    .green{
+        margin-top: torem(8px);
+        font-size: $fontsize-xl;
+    }
+}
+.address{
+    > a{
+        display: block;
+        position: relative;
+        padding: 0 torem(30px) 0 torem(40px);
+        > strong{
+            padding-right: torem(3px);
+            font-weight: normal;
+            font-size: $fontsize-ms;
+        }
+        > span{
+            font-size: $fontsize-m;
+        }
+        > small{
+            margin-top: torem(5px);
+            display: block;
+            line-height: 150%;
+        }
+        > .icon{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: torem(-15px);
+            font-size: $fontsize-xl;
+            color: $lightmore;
+            &.arrow-right{
+                left: auto;
+                right: torem(-10px);
+            }
+        }
+    }
+}
+.order-item.food{
+    margin-bottom: torem(60px);
+    padding: torem(30px) torem(15px) 0;
+    background: #f1f1f1;
+    border-bottom: none;
+    .details{
+        position: relative;
+        z-index: 9;
+        padding-bottom: torem(30px);
+        border-radius: 4px;
+        box-shadow: 0 0 torem(6px) #aaa;
+        background: #fff;
+        > img{
+            border-radius: 4px 4px 0 0;
+        }
+        > h3{
+            line-height: 150%;
+            padding: torem(20px) torem(20px) torem(10px);
+        }
+        > p{
+            padding: 0 torem(20px);
+            font-size: $fontsize-m;
+            > .icon, > b{
+                margin-right: 0;
+                vertical-align: middle;
+                color: $orange;
+            }
+            > b{
+                font-size: $fontsize-xl;
+            }
+        }
+        > .form-btn{
+            position: absolute;
+            top: auto;
+            bottom: torem(-65px);
+            left: 0;
+            width: 100%;
+            margin-bottom: torem(50px);
+            > .btn{
+                width: torem(50px);
+                height: torem(50px);
+                .icon{
+                    font-size: torem(70px);
+                    color: $orange;
+                }
+            }
+        }
+    }
+    .bg1, .bg2{
+        margin: 0 auto;
+        min-height: torem(40px);
+        position: relative;
+        top: torem(-20px);
+        background: #fff;
+        z-index: 8;
+        width: 90%;
+        border-radius: 4px;
+        box-shadow: 0 0 torem(10px) #aaa;
+        opacity: .8;
+    }
+    .bg2{
+        width: 80%;
+        z-index: 7;
+        top: torem(-40px);
+    }
+}
+
+.order-item.address{
+    > p > span, > p > input{
+        text-align: right;
+        display: inline-block;
+        width: torem(265px);
+    }
+    > p.pay-method > span{
+        width: torem( 165px );
+    }
+}
+.order-item.address-list{
+    padding: 0;
+    background: #f1f1f1;
+    > .list{
+        margin-bottom: -1px;
+        padding: 0 torem(15px);
+        > li{
+            margin-bottom: 0;
+            padding: torem(15px) 0;
+            border-bottom: 1px solid #ccc;
+            > span > .icon{
+                font-size: $fontsize-m;
+            }
+            > b{
+                color: $lightmore;
+            }
+            &:last-child{
+                border-bottom: none;
+                > b{
+                    color: $orange;
+                }
+                > span > .icon.add{
+                    display: block;
+                    margin-top: torem(-10px);
+                    line-height: 100%;
+                    font-size: $fontsize-xxl;
+                    color: $orange;
+                }
+            }
+        }
+    }
+}
+.uc-top{
+    position: relative;
+    height: torem(60px);
+    padding-bottom: torem(100px);
+    margin-bottom: torem(120px);
+    background: $green;
+    border-bottom: 2px solid #539709;
+}
+.uc-top-noname{
+    margin-bottom: torem(90px);
+}
+.uc-head{
+    position: absolute;
+    left: 50%;
+    bottom: torem(-93px);
+    margin-left: torem(-90px);
+    padding: torem(40px) torem(38px) torem(38px);
+    width: torem(180px);
+    height: torem(180px);
+    background: url(../image/bg_head.png) no-repeat;
+    background-size: contain;
+    > img{
+        display: block;
+        width: 100%;
+        border-radius: 50%;
+        margin-bottom: torem(30px);
+    }
+    > h3{
+        text-align: center;
+    }
+}
+.uc-icon{
+    display: inline-block;
+    width: torem(40px);
+    height: torem(40px);
+}
+.icon-user{
+    background: url(../image/icon_user.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-order{
+    background: url(../image/icon_order.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-bell{
+    background: url(../image/icon_bell.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-edit{
+    background: url(../image/icon_edit.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-phone{
+    background: url(../image/icon_phone.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-info{
+    background: url(../image/icon_info.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-sex{
+    background: url(../image/icon_sex.png) center center no-repeat;
+    background-size: contain;
+}
+.icon-borth{
+    background: url(../image/icon_borth.png) center center no-repeat;
+    background-size: contain;
+}
+.uc-item{
+    border-bottom: none;
+    a {
+        display: block;
+        line-height: 150%;
+        margin-bottom: torem(20px);
+        > span{
+            padding-top: torem(10px);
+            > .icon{
+                margin-left: torem(5px);
+                font-size: $fontsize-l;
+            }
+        }
+    }
+}
+.uc-edit-item{
+    border-bottom: none;
+    a > input{
+        padding: torem(5px) torem(10px);
+        font-size: $fontsize-ms;
+    }
+    a > span{
+        padding-top: torem(3px);
+        > .icon{
+            margin-left: torem(5px);
+            font-size: $fontsize-l;
+            color: $lightmore;
+        }
+    }
+}
+.order-item.list{
+    position: relative;
+    padding-left: torem(60px);
+    > .num{
+        position: absolute;
+        left: torem(18px);
+        top: torem(15px);
+        width: torem(30px);
+        height: torem(30px);
+        line-height: torem(30px);
+        text-align: center;
+        background: $orange;
+        color: #fff;
+        border-radius: 50%;
+        font-size: $fontsize-m;
+    }
+    > p{
+        margin-bottom: torem(5px);
+        &:last-child{
+            margin-bottom: 0;
+        }
+        > span{
+            padding-right: torem(10px);
+            color: $lightmore;
+            > .icon{
+                font-size: $fontsize-xs;
+                vertical-align: middle;
+            }
+            > b{
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.order-item.list.msg{
+    padding-left: torem(80px);
+    > img{
+        position: absolute;
+        left: torem(18px);
+        top: torem(15px);
+        width: torem(50px);
+        height: torem(50px);
+        line-height: torem(30px);
+        text-align: center;
+        background: $orange;
+        color: #fff;
+        border-radius: 50%;
+        font-size: $fontsize-m;
+    }
+    > p > span{
+        padding-right: 0;
+    }
+}
+.order-item.feedback{
+    border-bottom: none;
+}
+.order-item.pay{
+    .list > li{
+        padding-bottom: torem(10px);
+        span > .icon.check-round-fill{
+            font-size: $fontsize-xl;
+            color: #ccc;
+            &.green{
+                color: $green;
+            }
+        }
+    }
+}
+.coupon-item{
+    display: block;
+}
+.coupon-list{
+    padding: 0;
+    > ul{
+        > li{
+            > a{
+                padding: torem(20px) torem(20px) torem(15px);
+                > img{
+                    width: torem(80px);
+                    top: torem(20px);
+                }
+                > span{
+                    height: auto;
+                    padding: 0 0 0 torem(100px);
+                    > strong{
+                        margin-bottom: torem(5px);
+                    }
+                    > b{
+                        display: block;
+                        width: auto;
+                        margin-bottom: torem(10px);
+                        &.lightmore{
+                            color: $lightmore;
+                        }
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        > i.lightmore{
+                            color: $lightmore;
+                            text-decoration: line-through;
+                        }       
+                    }
+                    > .uc-icon{
+                        position: absolute;
+                        top: 50%;
+                        right: torem(20px);
+                        margin-top: torem(-30px);
+                    }
+                }  
+            } 
+        }
+    }
+}
+.coupon-details{
+    position: relative;
+    margin: torem(30px);
+    background: #fff;
+    min-height: torem(100px);
+    border-radius: torem(6px);
+    text-align: center;
+    box-shadow: 0 0 5px 5px #e5e5e5;
+    > h3{
+        padding: torem(30px);
+        font-size: $fontsize-xl;
+    }
+    > img{
+        width: torem(80px);
+        height: torem(80px);
+        margin: 0 auto torem(20px);
+    }
+    > p{
+        padding: torem(10px) torem(30px);
+        text-align: left;
+        white-space: nowrap;
+        &.tips{
+            margin-top: torem(10px);
+            position: relative;
+            padding: torem(60px) 0 torem(40px);
+            text-align: center;
+            color: #666;
+            .bg{
+                position: absolute;
+                top: 0;
+                left: torem(-30px);
+                right: torem(-30px);
+                height: torem(49px);
+                background: url(../image/bg_coupon.jpg) center center no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+    > .close{
+        display: block;
+        position: absolute;
+        top: torem(8px);
+        right: torem(10px);
+        > .icon{
+            margin-right: 0;
+            color: $green;
+            font-size: $fontsize-xxl;
+        }
+    }
+}
+.result-list > li > b, .result-list > li > strong{
+    display: inline-block;
+    width: torem(65px);
+    vertical-align: middle;
+}
+.result-list > li > strong{
+    font-weight: normal;
+    width: torem(50px);
+}
+.form-control{
+    border: 1px solid #ccc;
+    padding: torem(8px) torem(10px);
+}
+.form-item.block{
+    > label, > input, > textarea, > select{
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: torem(10px);
+    }
+}
+.form-item.tips{
+    display: none;
+    color: $orange;
+}
